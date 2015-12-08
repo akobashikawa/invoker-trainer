@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoker Trainer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="board">
+            <!--
+            <div class="box box-1"></div>
+            <div class="box box-2"></div>
+            <div class="box box-3"></div>
+            <div class="box box-4"></div>
+        -->
+        </div>
+        <div class="habilities">
+            <div class="normal">            
+                <div class="hability hability-1"></div>
+                <div class="hability hability-2"></div>
+                <div class="hability hability-3"></div>
+            </div>
+            <div class="invoker">R</div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script>
+        var boardWidth = '400px',
+            boardHeight = '400px';
+
+        var level = 1;
+        var timeoutHandler;
+        var spells = {
+            QQQ: 'cold',
+            QQW: 'ghost',
+            QWW: 'tornado',
+            WWW: 'emp',
+            EWW: 'alacrity',
+            EQW: 'blast',
+            EEW: 'meteor',
+            EQQ: 'wall',
+            EEQ: 'spirit',
+            EEE: 'sun'
+        };
+        var spellKeys = Object.keys(spells);
+
+        function createFallBox() {
+
+            var nextTime = 2500 / level;
+            timeoutHandler = setTimeout(function() {
+                var spellKey = spellKeys[Math.floor(Math.random() * spellKeys.length)];
+                var spell = spells[spellKey];
+                var $box = $('<div class="box ' + spell + '">' + spell + '</div>').appendTo('.board');
+                var top = '-100px';
+                var left = Math.floor(100 * (Math.random() * 3)) + 'px';
+                $box.css({top: top, left: left}).animate({top: '400px'}, 10000 / level, 'linear', function() {
+                    level += 0.01;
+                    $box.remove();
+                });
+                createFallBox();
+            }, nextTime);
+
+        }
+
+        createFallBox();
+
+        $(document).on('keydown', function(e) {
+            var code = e.keyCode || e.which;
+            //console.log(code);
+            var letter = '';
+            switch (code) {
+                case 81:
+                    letter = 'Q';
+                    break;
+                case 87:
+                    letter = 'W';
+                    break;
+                case 69:
+                    letter = 'E';
+                    break;
+                case 82:
+                    letter = 'R';
+                    break;
+            }
+            if (letter) {
+                if (letter == 'R') {
+                    var letters = $($('.normal').html()).text();
+                    if (letters.length == 3) {
+                        // sort letters
+                        var spellKey = letters.split('').sort().join('');
+                        var spell = spells[spellKey];
+                        $('.box.' + spell).first().finish();
+                        //console.log(spell);
+                    }
+                } else {
+                    if ($('.hability').length == 3) {
+                        $('.hability').first().remove();
+                    }
+                    $('<div class="hability">' + letter + '</div>').appendTo('.habilities .normal');
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

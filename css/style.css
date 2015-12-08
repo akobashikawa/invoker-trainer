@@ -1,0 +1,64 @@
+/* line 1, style.scss */
+body, html {
+  height: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif; }
+
+/* line 5, style.scss */
+.container {
+  background: cyan;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+/* line 15, style.scss */
+.board {
+  background: lime;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  overflow: hidden;
+  position: relative; }
+
+/* line 24, style.scss */
+.box {
+  background: #ff0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  text-align: center;
+  line-height: 100px; }
+
+/* line 34, style.scss */
+.box-2 {
+  background: blue; }
+
+/* line 37, style.scss */
+.box-3 {
+  background: pink; }
+
+/* line 40, style.scss */
+.box-4 {
+  background: purple; }
+
+/* line 43, style.scss */
+.habilities {
+  display: flex;
+  justify-content: space-around; }
+
+/* line 47, style.scss */
+.habilities .normal {
+  display: flex;
+  justify-content: flex-start; }
+
+/* line 51, style.scss */
+.hability, .invoker {
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 100px; }
+
+/*# sourceMappingURL=style.css.map */
