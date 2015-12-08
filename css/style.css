@@ -5,52 +5,145 @@ body, html {
 
 /* line 5, style.scss */
 .container {
-  background: cyan;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5d9dd+0,83c783+17,52b152+33,9b2600+67,682100+83,002400+100 */
+  background: #b5d9dd;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #b5d9dd 0%, #83c783 17%, #52b152 33%, #9b2600 67%, #682100 83%, #002400 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #b5d9dd 0%, #83c783 17%, #52b152 33%, #9b2600 67%, #682100 83%, #002400 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #b5d9dd 0%, #83c783 17%, #52b152 33%, #9b2600 67%, #682100 83%, #002400 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5d9dd', endColorstr='#002400',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
 
-/* line 13, style.scss */
-.level {
-  flex: 0 1 auto; }
-
 /* line 18, style.scss */
+.points {
+  flex: 0 1 auto;
+  color: #ccc;
+  line-height: 20px;
+  margin-bottom: 10px; }
+
+/* line 26, style.scss */
 .board {
-  background: lime;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+  background: #45484d;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #45484d 0%, black 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #45484d 0%, black 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #45484d 0%, black 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
   width: 400px;
   height: 400px;
   display: flex;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
+  border: 3px solid #eee; }
 
-/* line 27, style.scss */
+/* line 42, style.scss */
 .box {
-  background: #ff0;
+  background: #fff;
   width: 100px;
   height: 100px;
   position: absolute;
   text-align: center;
-  line-height: 100px; }
+  line-height: 100px;
+  box-shadow: 0 5px 10px 0 black;
+  border-radius: 5px;
+  color: transparent;
+  background: none no-repeat center center;
+  background-size: cover; }
 
-/* line 35, style.scss */
+/* line 55, style.scss */
+.box.cold {
+  background-image: url(../img/Cold_Snap_icon.png); }
+
+/* line 58, style.scss */
+.box.ghost {
+  background-image: url(../img/Ghost_Walk_icon.png); }
+
+/* line 61, style.scss */
+.box.tornado {
+  background-image: url(../img/Tornado_icon.png); }
+
+/* line 64, style.scss */
+.box.emp {
+  background-image: url(../img/EMP_icon.png); }
+
+/* line 67, style.scss */
+.box.alacrity {
+  background-image: url(../img/Alacrity_icon.png); }
+
+/* line 70, style.scss */
+.box.blast {
+  background-image: url(../img/Deafening_Blast_icon.png); }
+
+/* line 73, style.scss */
+.box.meteor {
+  background-image: url(../img/Chaos_Meteor_icon.png); }
+
+/* line 76, style.scss */
+.box.wall {
+  background-image: url(../img/Ice_Wall_icon.png); }
+
+/* line 79, style.scss */
+.box.spirit {
+  background-image: url(../img/Forge_Spirit_icon.png); }
+
+/* line 82, style.scss */
+.box.sun {
+  background-image: url(../img/Sun_Strike_icon.png); }
+
+/* line 85, style.scss */
 .habilities {
   display: flex;
   justify-content: space-around; }
 
-/* line 39, style.scss */
+/* line 89, style.scss */
 .habilities .normal {
   display: flex;
   justify-content: flex-start; }
 
-/* line 43, style.scss */
-.hability, .invoker {
+/* line 93, style.scss */
+.hability, .invoke {
   background: #fff;
   width: 100px;
   height: 100px;
   border-radius: 100%;
   text-align: center;
-  line-height: 100px; }
+  line-height: 100px;
+  color: transparent;
+  background: none no-repeat center center;
+  background-size: cover; }
+
+/* line 104, style.scss */
+.hability.Q {
+  background-image: url(../img/Quas_icon.png);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.5); }
+
+/* line 108, style.scss */
+.hability.W {
+  background-image: url(../img/Wex_icon.png);
+  box-shadow: 0 0 10px 0 rgba(255, 0, 255, 0.5); }
+
+/* line 112, style.scss */
+.hability.E {
+  background-image: url(../img/Exort_icon.png);
+  box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.5); }
+
+/* line 116, style.scss */
+.invoke {
+  background-image: url(../img/Invoke_icon.png);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5); }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,11 +14,11 @@
             <div class="board"></div>
             <div class="habilities">
                 <div class="normal">            
-                    <div class="hability hability-1"></div>
-                    <div class="hability hability-2"></div>
-                    <div class="hability hability-3"></div>
+                    <div class="hability"></div>
+                    <div class="hability"></div>
+                    <div class="hability"></div>
                 </div>
-                <div class="invoker">R</div>
+                <div class="invoke">R</div>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@
                     if ($('.hability').length == 3) {
                         $('.hability').first().remove();
                     }
-                    $('<div class="hability">' + letter + '</div>').appendTo('.habilities .normal');
+                    $('<div class="hability ' + letter + '">' + letter + '</div>').appendTo('.habilities .normal');
                 }
             }
         });
