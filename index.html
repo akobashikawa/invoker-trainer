@@ -30,8 +30,9 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     <script>
-        var boardWidth = '400px',
-            boardHeight = '400px';
+        var boardWidth = 400,
+            boardHeight = 400,
+            boxSize = 100;
 
         var level = 1;
         var timeoutHandler;
@@ -56,9 +57,9 @@
                 var spellKey = spellKeys[Math.floor(Math.random() * spellKeys.length)];
                 var spell = spells[spellKey];
                 var $box = $('<div class="box ' + spell + '">' + spell + '</div>').appendTo('.board');
-                var top = '-100px';
-                var left = Math.floor(100 * (Math.random() * 3)) + 'px';
-                $box.css({top: top, left: left}).animate({top: '400px'}, 10000 / level, 'linear', function() {
+                var top = '-' + boxSize + 'px';
+                var left = Math.floor(boxSize * (Math.random() * 3)) + 'px';
+                $box.css({top: top, left: left}).animate({top: boardHeight + 'px'}, 10000 / level, 'linear', function() {
                     level += 0.01;
                     $box.remove();
                 });
