@@ -9,21 +9,17 @@
 <body>
 
     <div class="container">
-        <div class="board">
-            <!--
-            <div class="box box-1"></div>
-            <div class="box box-2"></div>
-            <div class="box box-3"></div>
-            <div class="box box-4"></div>
-        -->
-        </div>
-        <div class="habilities">
-            <div class="normal">            
-                <div class="hability hability-1"></div>
-                <div class="hability hability-2"></div>
-                <div class="hability hability-3"></div>
+        <div class="points">0</div>
+        <div class="boardbox">
+            <div class="board"></div>
+            <div class="habilities">
+                <div class="normal">            
+                    <div class="hability hability-1"></div>
+                    <div class="hability hability-2"></div>
+                    <div class="hability hability-3"></div>
+                </div>
+                <div class="invoker">R</div>
             </div>
-            <div class="invoker">R</div>
         </div>
     </div>
     
@@ -34,8 +30,11 @@
             boardHeight = 400,
             boxSize = 100;
 
-        var level = 1;
+        var level = 1,
+            points = 0;
+
         var timeoutHandler;
+
         var spells = {
             QQQ: 'cold',
             QQW: 'ghost',
@@ -60,7 +59,6 @@
                 var top = '-' + boxSize + 'px';
                 var left = Math.floor(boxSize * (Math.random() * 3)) + 'px';
                 $box.css({top: top, left: left}).animate({top: boardHeight + 'px'}, 10000 / level, 'linear', function() {
-                    level += 0.01;
                     $box.remove();
                 });
                 createFallBox();
@@ -95,7 +93,13 @@
                         // sort letters
                         var spellKey = letters.split('').sort().join('');
                         var spell = spells[spellKey];
-                        $('.box.' + spell).first().finish();
+                        var match = $('.box.' + spell).first();
+                        if (match.length == 1) {
+                            level += 0.01;
+                            points += 1;
+                            $('.points').text(points);
+                            match.finish();
+                        }
                         //console.log(spell);
                     }
                 } else {

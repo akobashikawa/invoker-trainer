@@ -12,7 +12,11 @@ body, html {
   justify-content: center;
   align-items: center; }
 
-/* line 15, style.scss */
+/* line 13, style.scss */
+.level {
+  flex: 0 1 auto; }
+
+/* line 18, style.scss */
 .board {
   background: lime;
   width: 400px;
@@ -21,7 +25,7 @@ body, html {
   overflow: hidden;
   position: relative; }
 
-/* line 24, style.scss */
+/* line 27, style.scss */
 .box {
   background: #ff0;
   width: 100px;
@@ -30,29 +34,17 @@ body, html {
   text-align: center;
   line-height: 100px; }
 
-/* line 34, style.scss */
-.box-2 {
-  background: blue; }
-
-/* line 37, style.scss */
-.box-3 {
-  background: pink; }
-
-/* line 40, style.scss */
-.box-4 {
-  background: purple; }
-
-/* line 43, style.scss */
+/* line 35, style.scss */
 .habilities {
   display: flex;
   justify-content: space-around; }
 
-/* line 47, style.scss */
+/* line 39, style.scss */
 .habilities .normal {
   display: flex;
   justify-content: flex-start; }
 
-/* line 51, style.scss */
+/* line 43, style.scss */
 .hability, .invoker {
   background: #fff;
   width: 100px;

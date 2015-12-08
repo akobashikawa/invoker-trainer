@@ -10,6 +10,9 @@ body, html {
     justify-content: center;
     align-items: center; 
 }
+.level {
+    flex: 0 1 auto;
+}
 $board-width: 400px;
 $board-height: 400px;
 .board {
@@ -28,17 +31,6 @@ $box-size: 100px;
     position: absolute;
     text-align: center;
     line-height: $box-size;
-}
-.box-1 {
-}
-.box-2 {
-    background: blue;
-}
-.box-3 {
-    background: pink;
-}
-.box-4 {
-    background: purple;
 }
 .habilities {
     display: flex;
