@@ -18,7 +18,7 @@
                     <div class="hability"></div>
                     <div class="hability"></div>
                 </div>
-                <div class="invoke">R</div>
+                <div class="hability invoke">R</div>
             </div>
         </div>
     </div>
@@ -36,29 +36,34 @@
         var timeoutHandler;
 
         var spells = {
-            QQQ: 'cold',
-            QQW: 'ghost',
-            QWW: 'tornado',
-            WWW: 'emp',
-            EWW: 'alacrity',
-            EQW: 'blast',
-            EEW: 'meteor',
-            EQQ: 'wall',
-            EEQ: 'spirit',
-            EEE: 'sun'
+            QQQ: {name: 'cold', key: 'QQQ'},
+            QQW: {name: 'ghost', key: 'QQW'},
+            QWW: {name: 'tornado', key: 'QWW'},
+            WWW: {name: 'emp', key: 'WWW'},
+            EWW: {name: 'alacrity', key: 'WWE'},
+            EQW: {name: 'blast', key: 'QWE'},
+            EEW: {name: 'meteor', key: 'WEE'},
+            EQQ: {name: 'wall', key: 'QQE'},
+            EEQ: {name: 'spirit', key: 'QEE'},
+            EEE: {name: 'sun', key: 'EEE'}
         };
         var spellKeys = Object.keys(spells);
+        var opacity;
 
         function createFallBox() {
 
             var nextTime = 2500 / level;
             timeoutHandler = setTimeout(function() {
                 var spellKey = spellKeys[Math.floor(Math.random() * spellKeys.length)];
-                var spell = spells[spellKey];
-                var $box = $('<div class="box ' + spell + '">' + spell + '</div>').appendTo('.board');
+                var spell = spells[spellKey].name;
+                var $box = $('<div class="box ' + spell + '">' + spells[spellKey].key + '</div>').appendTo('.board');
                 var top = '-' + boxSize + 'px';
                 var left = Math.floor(boxSize * (Math.random() * 3)) + 'px';
-                $box.css({top: top, left: left}).animate({top: boardHeight + 'px'}, 10000 / level, 'linear', function() {
+                opacity = 1 - level / 5;
+                if (opacity < 0) {
+                    opacity = 0;
+                }
+                $box.css({top: top, left: left, color: 'rgba(255,255,255,' + opacity + ')', 'text-shadow': '0 2px 5px rgba(0,0,0,' + opacity + ')'}).animate({top: boardHeight + 'px'}, 13000 / level, 'linear', function() {
                     $box.remove();
                 });
                 createFallBox();
@@ -88,11 +93,15 @@
             }
             if (letter) {
                 if (letter == 'R') {
+                    $('.invoke').css({transition: 'none', opacity: 1}).finish().animate({opacity: 0.5}, 500, function() {
+                        $('.invoke').css({transition: 'all 0.3s', color: 'rgba(255,255,255,' + opacity + ')', 'text-shadow': '0 2px 5px rgba(0,0,0,' + opacity + ')'});
+                    });
+                    // get letters
                     var letters = $($('.normal').html()).text();
                     if (letters.length == 3) {
                         // sort letters
                         var spellKey = letters.split('').sort().join('');
-                        var spell = spells[spellKey];
+                        var spell = spells[spellKey].name;
                         var match = $('.box.' + spell).first();
                         if (match.length == 1) {
                             level += 0.01;
@@ -103,10 +112,10 @@
                         //console.log(spell);
                     }
                 } else {
-                    if ($('.hability').length == 3) {
-                        $('.hability').first().remove();
+                    if ($('.normal .hability').length == 3) {
+                        $('.normal .hability').first().remove();
                     }
-                    $('<div class="hability ' + letter + '">' + letter + '</div>').appendTo('.habilities .normal');
+                    $('<div class="hability ' + letter + '">' + letter + '</div>').css({color: 'rgba(255,255,255,' + opacity + ')', 'text-shadow': '0 2px 5px rgba(0,0,0,' + opacity + ')'}).appendTo('.habilities .normal');
                 }
             }
         });

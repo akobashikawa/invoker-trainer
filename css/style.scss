@@ -36,7 +36,8 @@ $board-height: 400px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 0 50px 0 rgba(0,0,0,0.5);
-    border: 3px solid #eee;
+    border-radius: 5px;
+    border: 3px solid #666;
 }
 $box-size: 100px;
 .box {
@@ -48,72 +49,89 @@ $box-size: 100px;
     line-height: $box-size;
     box-shadow: 0 5px 10px 0 black;
     border-radius: 5px;
-    color: transparent;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     background: none no-repeat center center;
     background-size: cover;
-}
-.box.cold {
-    background-image: url(../img/Cold_Snap_icon.png);
-}
-.box.ghost {
-    background-image: url(../img/Ghost_Walk_icon.png);
-}
-.box.tornado {
-    background-image: url(../img/Tornado_icon.png);
-}
-.box.emp {
-    background-image: url(../img/EMP_icon.png);
-}
-.box.alacrity {
-    background-image: url(../img/Alacrity_icon.png);
-}
-.box.blast {
-    background-image: url(../img/Deafening_Blast_icon.png);
-}
-.box.meteor {
-    background-image: url(../img/Chaos_Meteor_icon.png);
-}
-.box.wall {
-    background-image: url(../img/Ice_Wall_icon.png);
-}
-.box.spirit {
-    background-image: url(../img/Forge_Spirit_icon.png);
-}
-.box.sun {
-    background-image: url(../img/Sun_Strike_icon.png);
+    cursor: pointer;
+    transition: box-shadow 0.3;
+    &:hover {
+        box-shadow: 0 0 20px 0 rgba(255,255,255,0.8);
+        color: white;
+    }
+    &.cold {
+        background-image: url(../img/Cold_Snap_icon.png);
+    }
+    &.ghost {
+        background-image: url(../img/Ghost_Walk_icon.png);
+    }
+    &.tornado {
+        background-image: url(../img/Tornado_icon.png);
+    }
+    &.emp {
+        background-image: url(../img/EMP_icon.png);
+    }
+    &.alacrity {
+        background-image: url(../img/Alacrity_icon.png);
+    }
+    &.blast {
+        background-image: url(../img/Deafening_Blast_icon.png);
+    }
+    &.meteor {
+        background-image: url(../img/Chaos_Meteor_icon.png);
+    }
+    &.wall {
+        background-image: url(../img/Ice_Wall_icon.png);
+    }
+    &.spirit {
+        background-image: url(../img/Forge_Spirit_icon.png);
+    }
+    &.sun {
+        background-image: url(../img/Sun_Strike_icon.png);
+    }
 }
 .habilities {
     display: flex;
     justify-content: space-around;
+    margin-top: 5px;
+    .normal {
+        display: flex;
+        justify-content: flex-start;
+    }
 }
-.habilities .normal {
-    display: flex;
-    justify-content: flex-start;
-}
-.hability, .invoke {
+.hability {
     background: #fff;
     width: 100px;
     height: 100px;
     border-radius: 100%;
     text-align: center;
     line-height: 100px;
-    color: transparent;
-    background: none no-repeat center center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    background: none no-repeat center center rgba(255,255,255,0.3);
     background-size: cover;
-}
-.hability.Q {
-    background-image: url(../img/Quas_icon.png);
-    box-shadow: 0 0 10px 0 rgba(0,0,255,0.5);
-}
-.hability.W {
-    background-image: url(../img/Wex_icon.png);
-    box-shadow: 0 0 10px 0 rgba(255,0,255,0.5);
-}
-.hability.E {
-    background-image: url(../img/Exort_icon.png);
-    box-shadow: 0 0 10px 0 rgba(255,0,0,0.5);
-}
-.invoke {
-    background-image: url(../img/Invoke_icon.png);
-    box-shadow: 0 0 10px 0 rgba(255,255,255,0.5);
+    cursor: pointer;
+    opacity: 0.9;
+    &:hover {
+        box-shadow: 0 0 20px 0 white !important;
+        opacity: 1 !important;
+    }
+    &.Q {
+        background-image: url(../img/Quas_icon.png);
+        box-shadow: 0 0 10px 0 rgba(0,0,255,0.5);
+    }
+    &.W {
+        background-image: url(../img/Wex_icon.png);
+        box-shadow: 0 0 10px 0 rgba(255,0,255,0.5);
+    }
+    &.E {
+        background-image: url(../img/Exort_icon.png);
+        box-shadow: 0 0 10px 0 rgba(255,0,0,0.5);
+    }
+    &.invoke {
+        opacity: 0.5;
+        background-image: url(../img/Invoke_icon.png);
+        box-shadow: 0 0 10px 0 rgba(255,255,255,0.3);
+        transition: all 0.3s;
+    }
 }
